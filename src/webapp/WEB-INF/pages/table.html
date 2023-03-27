@@ -20,12 +20,12 @@
         <td th:utext="${user.email}"></td>
         <td th:utext="${user.phone}"></td>
         <td>
-            <form th:action="@{/updateUser}">
+            <form th:method="post" th:action="@{/updateUser}">
                 <button type="submit" th:name="id" th:value="${user.getId()}">Update</button>
             </form>
         </td>
         <td>
-            <form th:action="@{/deleteUser}">
+            <form th:method="post" th:action="@{/deleteUser}">
                 <button type="submit" th:name="id" th:value="${user.getId()}">Delete</button>
             </form>
         </td>
@@ -33,7 +33,9 @@
 </table>
 
 <br>
-<input type="button" value="Add" onclick="window.location.href='addUser'"/>
+<form th:method="post" th:action="@{/addUser}">
+    <button type="submit">Add</button>
+</form>
 
 </body>
 </html>
